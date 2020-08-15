@@ -2,7 +2,7 @@ import gpsd
 
 
 gpsd.connect(host="0.0.0.0", port=2947)
-gpsd.GpsResponse.mode = 3
+gpsd.GpsResponse.mode = 1
 gps = gpsd.GpsResponse()
 
 print(gpsd.device())
