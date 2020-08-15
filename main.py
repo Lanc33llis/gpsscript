@@ -5,8 +5,8 @@ gpsd.connect(host="0.0.0.0", port=2947)
 gps = gpsd
 gps.connect(host="0.0.0.0", port=2947)
 
-print(gps.GpsResponse.lat)
-print(gps.GpsResponse.long)
+print(gps.device())
+print(gps.get_current())
 
 
 
