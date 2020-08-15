@@ -20,8 +20,8 @@ def main(argv):
         print("Encoutered error at uhubctl: ", uhub.stderr)
     else:
         print("I function correctly")
-    if len(opts) > 0:
-        if (opts[0] == '-d'):
+    for opt, arg in opts:
+        if opt == '-d':
             print(uhub.stdout)
     
 if __name__ == "__main__":
