@@ -2,7 +2,7 @@ import gpsd
 
 
 gpsd.connect(host="0.0.0.0", port=2947)
-gps = gpsd.GpsResponse
+gps = gpsd.GpsResponse()
 
 print(gpsd.device())
 gpsd.get_current()
