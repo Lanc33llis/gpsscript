@@ -4,10 +4,11 @@ gps = gpsd
 gps.connect(host="0.0.0.0", port=2947)
 gps.GpsResponse.mode = 1
 
+a = gps.GpsResponse
+
 print(gps.device())
 gps.get_current()
-gps.GpsResponse.from_json()
-print(gps.GpsResponse.from_json(gps.json(mode=WATCH_ENABLE)))
+print(a.alt)
 
 
 
