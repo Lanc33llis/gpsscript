@@ -2,11 +2,11 @@ import gpsd
 
 gpsd.connect(host="0.0.0.0", port=2947)
 
-gps = gpsd
+gps = gpsd(mode=WATCH_ENABLE|WATCH_NEWSTYLE)
 gps.connect(host="0.0.0.0", port=2947)
 
 print(gps.device())
-print(gps.get_current())
+print(gps.getcurrent())
 
 
 
