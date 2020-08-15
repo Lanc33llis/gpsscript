@@ -18,6 +18,7 @@ def main(argv):
 
     if uhub.stderr != '':
         print("Encoutered error at uhubctl: ", uhub.stderr)
+        sys.exit(-1)
     else:
         print("I function correctly")
     for opt, arg in opts:
