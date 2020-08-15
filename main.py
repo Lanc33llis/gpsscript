@@ -1,14 +1,11 @@
 import gpsd
 
-gps = gpsd
-gps.connect(host="0.0.0.0", port=2947)
-gps.GpsResponse.mode = 1
 
-a = gpsd.GpsResponse(3)
+gpsd.connect(host="0.0.0.0", port=2947)
 
-print(gps.device())
-gps.get_current()
-print(a.alt)
+print(gpsd.device())
+gpsd.get_current()
+print(gpsd.GpsResponse.alt)
 
 
 
