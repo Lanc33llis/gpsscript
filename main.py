@@ -6,7 +6,8 @@ gps.GpsResponse.mode = 1
 
 print(gps.device())
 gps.get_current()
-print(gps.GpsResponse.alt)
+gps.GpsResponse.from_json()
+print(gps.GpsResponse.from_json(gps.json(mode=WATCH_ENABLE|WATCH_NEWSTYLE)))
 
 
 
