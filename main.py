@@ -2,10 +2,12 @@ import gpsd
 
 
 gpsd.connect(host="0.0.0.0", port=2947)
+gps = gpsd.GpsResponse
 
 print(gpsd.device())
 gpsd.get_current()
-print(gpsd.GpsResponse.altitude())
+gpsd.GpsResponse.altitude(gps)
+print(gps.alt)
 
 
 
