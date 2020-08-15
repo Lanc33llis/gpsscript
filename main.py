@@ -12,6 +12,7 @@ print(gpsd.get_current())
 print(gps.altitude)
 
 
+out, errs
 
 subprocess.run(["/home/pi/gpsscript/uhubctl -a 0 -p 10"], shell=True, stdout=out,stderr=errs)
 
