@@ -1,4 +1,5 @@
-import gpsd, subprocess, from subprocess import PIPE
+import gpsd, subprocess
+from subprocess import PIPE
 
 
 gpsd.connect(host="0.0.0.0", port=2947)
