@@ -4,7 +4,7 @@ gps = gpsd
 gps.connect(host="0.0.0.0", port=2947)
 gps.GpsResponse.mode = 1
 
-a = gpsd.GpsResponse(3, 5)
+a = gpsd.GpsResponse(3)
 
 print(gps.device())
 gps.get_current()
