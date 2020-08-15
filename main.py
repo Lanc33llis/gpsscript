@@ -8,16 +8,11 @@ def main(argv):
     gpsd.GpsResponse.mode = 3
 
     gps = gpsd.get_current()
-    gps.mode = 3
-
-    print(gpsd.device())
-    print(gpsd.get_current())
-    print(gps.altitude)
 
     uhub = subprocess.run(["/home/pi/gpsscript/uhubctl -a 0 -p 10"], shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
 
     if uhub.stderr != '':
-        print("Encoutered error at uhubctl: ", uhub.stderr)
+        print("Encoutered fatal error @ uhubctl: ", uhub.stderr)
         sys.exit(-1)
     else:
         print("I function correctly")
