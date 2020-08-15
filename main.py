@@ -6,7 +6,7 @@ gps.GpsResponse.mode = 1
 
 print(gps.device())
 gps.get_current()
-print(gps.GpsResponse.altitude)
+print(gps.GpsResponse.altitude())
 
 
 
