@@ -11,10 +11,10 @@ print(gpsd.device())
 print(gpsd.get_current())
 print(gps.altitude)
 
-errors = str
-subprocess.run(["/home/pi/gpsscript/uhubctl -a 0 -p 10"], shell=True, stderr=errors)
-print(errors)
 
+subprocess.run(["/home/pi/gpsscript/uhubctl -a 0 -p 10"], shell=True, stderr=subprocess.STDOUT)
+
+print(std=subprocess.STDOUT)
 
 
 
