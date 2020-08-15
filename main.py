@@ -16,7 +16,7 @@ def main(argv):
 
     uhub = subprocess.run(["/home/pi/gpsscript/uhubctl -a 0 -p 10"], shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
 
-    if uhub.stderr == '':
+    if uhub.stderr != '':
         print("Encoutered error at uhubctl: ", uhub.stderr)
     else:
         if len(opts) > 0:
