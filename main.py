@@ -1,4 +1,4 @@
-import gpsd, subprocess
+import gpsd, subprocess, from subprocess import PIPE
 
 
 gpsd.connect(host="0.0.0.0", port=2947)
@@ -11,7 +11,7 @@ print(gpsd.device())
 print(gpsd.get_current())
 print(gps.altitude)
 
-uhub = subprocess.run(["/home/pi/gpsscript/uhubctl", "-a 0 -p 10"], capture_output=True)
+uhub = subprocess.run(["/home/pi/gpsscript/uhubctl", "-a 0 -p 10"], stdout=subprocess.PIPE, cerr=subprocess.PIPE)
 
 print("Error is" + uhub.stderr)
 print("stdout is" + uhub.stdout)
