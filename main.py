@@ -5,7 +5,7 @@ gpsd.connect(host="0.0.0.0", port=2947)
 
 print(gpsd.device())
 gpsd.get_current()
-print(gpsd.GpsResponse.alt)
+print(gpsd.GpsResponse.altitude())
 
 
 
