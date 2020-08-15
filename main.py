@@ -2,7 +2,6 @@ import gpsd, subprocess, sys, getopt
 from subprocess import PIPE
 
 def main(argv):
-    opts, args = getopt.getopt(argv,"d")
 
     gpsd.connect(host="0.0.0.0", port=2947)
     gpsd.GpsResponse.mode = 3
@@ -19,8 +18,6 @@ def main(argv):
     if uhub.stderr == '':
         print("Encoutered error at uhubctl: ", uhub.stderr)
     else:
-        if opts[0] in ("-d"):
-            print(uhub.stdout)
         print("I function correctly")
 
 
