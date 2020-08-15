@@ -19,7 +19,7 @@ def main(argv):
     if uhub.stderr == '':
         print("Encoutered error at uhubctl: ", uhub.stderr)
     else:
-        if opts[0] in ("-d"):
+        if opts[0] == 'd':
             print(uhub.stdout)
         print("I function correctly")
 
