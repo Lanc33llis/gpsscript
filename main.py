@@ -2,8 +2,11 @@ import gpsd
 
 gpsd.connect(host="0.0.0.0", port=2947)
 
-print(gpsd.GpsResponse.lat)
-print(gpsd.GpsResponse.long)
+gps = gpsd
+gps.connect(host="0.0.0.0", port=2947)
+
+print(gps.GpsResponse.lat)
+print(gps.GpsResponse.long)
 
 
 
