@@ -1,5 +1,3 @@
 import gpsd
 
-gpsd.connect(port=80)
-
-gpsd
+gpsd.connect(host=0.0.0.0 port=2947)
