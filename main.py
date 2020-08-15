@@ -19,8 +19,9 @@ def main(argv):
     if uhub.stderr == '':
         print("Encoutered error at uhubctl: ", uhub.stderr)
     else:
-        if opts[0] == 'd':
-            print(uhub.stdout)
+        if len(opts) > 0:
+            if (opts[0] == 'd'):
+                print(uhub.stdout)
         print("I function correctly")
 
 if __name__ == "__main__":
