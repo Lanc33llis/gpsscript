@@ -22,7 +22,7 @@ def main(argv):
         print("I function correctly")
     for opt, arg in opts:
         if opt == '-d':
-            print(uhub.stdout)
+            print("DEBUG: ", uhub.stdout)
     
 if __name__ == "__main__":
    main(sys.argv[1:])
