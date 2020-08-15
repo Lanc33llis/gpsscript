@@ -14,8 +14,8 @@ print(gps.altitude)
 
 uhub = subprocess.run(["/home/pi/gpsscript/uhubctl", "-a 0 -p 10"], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
 
-print("Error is" + uhub.stderr)
-print("stdout is" + uhub.stdout)
+print("Error is " uhub.stderr)
+print("stdout is " uhub.stdout)
 
 
 
