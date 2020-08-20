@@ -22,7 +22,7 @@ def updateDirewolfConf():
     "DIGIPEAT 0 0 ^WIDE[3-7]-[1-7]$|^TEST$ ^WIDE[12]-[12]$ TRACE \n",
     "IGSERVER noam.aprs2.net \n",
     "IGLOGIN KI5KFW 19383 \n",
-    "PBEACON sendto=IG delay=0:10 every=1 symbol=\"igate\" overlay=R lat=" + str(float(lat)) + " long=" + str(float(lon)) + "\n",
+    "PBEACON sendto=IG delay=0:10 every=1 symbol=\"O\" overlay=R lat=" + str(float(lat)) + " long=" + str(float(lon)) + "\n",
     "IGTXLIMIT 6 10 \n",
     "TTPOINT  B01  37^55.37N  81^7.86W\n",		
     "TTPOINT  B7495088  42.605237  -71.34456\n",
