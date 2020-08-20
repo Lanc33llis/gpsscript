@@ -63,7 +63,7 @@ def main(argv):
         print("Lat " + str(float(lat)) + " Lon " + str(float(lon)))
         updateDirewolfConf()
         try:
-            subprocess.run(["sudo " "rtl_fm " "-f " "144.39M " "- " "| " "direwolf " "-c " "direwolf.conf " "-r " "24000 " "-D " "1 " "-"], stdout=subprocess.PIPE, stderr=subprocess.PIPE, timeout=60)
+            subprocess.run(["sudo rtl_fm -f 144.39M - | direwolf -c direwolf.conf -r 24000 -D 1 -"], stdout=subprocess.PIPE, stderr=subprocess.PIPE, timeout=60)
         except subprocess.TimeoutExpired:
             print("reset")
             continue
