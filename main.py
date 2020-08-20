@@ -1,17 +1,21 @@
-import gpsd, subprocess, sys, getopt, os, time
+import gpsd, subprocess, sys, getopt, os, time, math
 from subprocess import PIPE
+
+def gpsCheck():
+        gps = gpsd.get_current()
+        lat = gps.lat
+        lon = gps.lon
+        if math.trunc(lat) == 0.0 or math.trunc(lon) == 0.0:
+            time.sleep(.1)
+            gpsCheck()
+        else:
+            return lat, lon
 
 def main(argv):
     opts, args = getopt.getopt(argv,"d")
 
     gpsd.connect(host="0.0.0.0", port=2947)
     gpsd.GpsResponse.mode = 3
-
-    gps = gpsd.get_current()
-
-    
-
-
 
     #uhub = subprocess.run(["/home/pi/gpsscript/uhubctl -a 0 -p 10"], shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
 
@@ -20,9 +24,9 @@ def main(argv):
     #     sys.exit(-1)
     # else:
     print("I function correctly")
-    gps = gpsd.get_current()
-    lat = gps.lat
-    lon = gps.lon
+
+    lat, lon = gpsCheck()
+
     print("Lat " + str(float(lat)) + " Lon " + str(float(lon)))
     lines = ["ACHANNELS 1 \n",
     "CHANNEL 0 \n",
