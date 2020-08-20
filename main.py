@@ -10,23 +10,8 @@ def gpsCheck():
             lat, lon = gpsCheck()
         return lat, lon
 
-def main(argv):
-    opts, args = getopt.getopt(argv,"d")
-
-    gpsd.connect(host="0.0.0.0", port=2947)
-    gpsd.GpsResponse.mode = 3
-
-    #uhub = subprocess.run(["/home/pi/gpsscript/uhubctl -a 0 -p 10"], shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-
-    # if uhub.stderr == '':
-    #     print("Encoutered fatal error @ uhubctl: ", uhub.stderr)
-    #     sys.exit(-1)
-    # else:
-    print("I function correctly")
-
+def updateDirewolfConf():
     lat, lon = gpsCheck()
-
-    print("Lat " + str(float(lat)) + " Lon " + str(float(lon)))
     lines = ["ACHANNELS 1 \n",
     "CHANNEL 0 \n",
     "MYCALL KI5KFW \n",
@@ -59,7 +44,22 @@ def main(argv):
     direwolfconf.writelines(lines)
     direwolfconf.close()
     os.rename("direwolf.txt", "direwolf.conf")
+
+def main(argv):
+    opts, args = getopt.getopt(argv,"d")
+
+    gpsd.connect(host="0.0.0.0", port=2947)
+    gpsd.GpsResponse.mode = 3
+
+    #uhub = subprocess.run(["/home/pi/gpsscript/uhubctl -a 0 -p 10"], shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+
+    # if uhub.stderr == '':
+    #     print("Encoutered fatal error @ uhubctl: ", uhub.stderr)
+    #     sys.exit(-1)
+    # else:
+
     while True:
+        updateDirewolfConf()
         aprs = subprocess.run(["sudo rtl_fm -f 144.39M - | direwolf -c direwolf.conf -r 24000 -D 1 -"], shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, timeout=60)
         print("Lat " + str(float(lat)) + " Lon " + str(float(lon)))
         time.sleep(61)
