@@ -18,7 +18,7 @@ def updateDirewolfConf():
     "MODEM 1200 \n",
     "AGWPORT 8000 \n",
     "KISSPORT 8001 \n",
-    "PBEACON delay=0:05  every=30 overlay=S symbol=\"digi\" lat=" + str(float(lat)) + " long=" + str(float(lon)) + " power=50 height=20 gain=4 comment=\"San Antonia TX\" via=WIDE1-1,WIDE2-1 \n",
+    #"PBEACON delay=0:05  every=30 overlay=S symbol=\"digi\" lat=" + str(float(lat)) + " long=" + str(float(lon)) + " power=50 height=20 gain=4 comment=\"San Antonia TX\" via=WIDE1-1,WIDE2-1 \n",
     "DIGIPEAT 0 0 ^WIDE[3-7]-[1-7]$|^TEST$ ^WIDE[12]-[12]$ TRACE \n",
     "IGSERVER noam.aprs2.net \n",
     "IGLOGIN KI5KFW 19383 \n",
