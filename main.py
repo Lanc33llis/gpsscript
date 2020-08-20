@@ -33,7 +33,7 @@ def main(argv):
     "DIGIPEAT 0 0 ^WIDE[3-7]-[1-7]$|^TEST$ ^WIDE[12]-[12]$ TRACE ",
     "IGSERVER noam.aprs2.net",
     "IGLOGIN KI5KFW 19383",
-    "PBEACON sendto=IG delay=0:30 every=60:00 symbol=\"igate\" overlay=R lat=" + lat + " long=" + lon,
+    "PBEACON sendto=IG delay=0:30 every=60:00 symbol=\"igate\" overlay=R lat=" + str(float(lat)) + " long=" + str(float(lon)),
     "IGTXLIMIT 6 10",
     "TTPOINT  B01  37^55.37N  81^7.86W  	",		
     "TTPOINT  B7495088  42.605237  -71.34456		",
