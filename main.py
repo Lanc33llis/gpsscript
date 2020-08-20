@@ -62,8 +62,7 @@ def main(argv):
         lat, lon = gpsCheck()
         print("Lat " + str(float(lat)) + " Lon " + str(float(lon)))
         updateDirewolfConf()
-        aprs = subprocess.run(["sudo rtl_fm -f 144.39M - | direwolf -c direwolf.conf -r 24000 -D 1 -"], shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, timeout=60)
-        time.sleep(61)
+        aprs = subprocess.run(["sudo rtl_fm -f 144.39M - | direwolf -c direwolf.conf -r 24000 -D 1"], shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, timeout=60)
 
     
     for opt, arg in opts:
