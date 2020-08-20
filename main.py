@@ -23,7 +23,7 @@ def main(argv):
     gps = gpsd.get_current()
     lat = gps.lat
     lon = gps.lon
-    print("Lat " lat + " Lon " + lon)
+    print("Lat " + lat + " Lon " + lon)
     lines = ["ACHANNELS 1 \n",
     "CHANNEL 0 \n",
     "MYCALL KI5KFW \n",
