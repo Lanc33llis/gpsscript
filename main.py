@@ -48,6 +48,12 @@ def updateDirewolfConf():
 def main(argv):
     opts, args = getopt.getopt(argv,"d")
 
+    kill = subprocess.run(["sudo killall gpsd"], shell=True)
+    kill = subprocess.run(["sudo killall gpsd"], shell=True)
+    kill = subprocess.run(["sudo killall gpsd"], shell=True)
+    gpsdRun = subprocess.run(["sudo gpsd /dev/ttyACM0 -F /var/run/gpsd.sock]"], shell=True)
+
+
     gpsd.connect(host="0.0.0.0", port=2947)
     gpsd.GpsResponse.mode = 3
 
