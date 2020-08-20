@@ -61,6 +61,7 @@ def main(argv):
     os.rename("direwolf.txt", "direwolf.conf")
     while True:
         aprs = subprocess.run(["sudo rtl_fm -f 144.39M - | direwolf -c direwolf.conf -r 24000 -D 1 -"], shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, timeout=60)
+        print("Lat " + str(float(lat)) + " Lon " + str(float(lon)))
         time.sleep(61)
 
     
