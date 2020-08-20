@@ -52,7 +52,7 @@ def main(argv):
         # TTMACRO  z  Cz
         # #Check this!
         # "
-        "#checkThis"
+        "checkThis"
     )
     direwolfconf.close()
     os.rename("/direwolf.txt", "/direwolf.conf")
