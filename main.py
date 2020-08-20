@@ -9,7 +9,7 @@ def main(argv):
 
     gps = gpsd.get_current()
 
-    uhub = subprocess.run(["/home/pi/gpsscript/uhubctl -a 0 -p 10"], shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    #uhub = subprocess.run(["/home/pi/gpsscript/uhubctl -a 0 -p 10"], shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
 
     if uhub.stderr == '':
         print("Encoutered fatal error @ uhubctl: ", uhub.stderr)
