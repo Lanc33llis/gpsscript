@@ -7,9 +7,8 @@ def gpsCheck():
         lon = gps.lon
         if math.trunc(lat) == 0.0 or math.trunc(lon) == 0.0:
             time.sleep(.1)
-            gpsCheck()
-        else:
-            return lat, lon
+            lat, lon = gpsCheck()
+        return lat, lon
 
 def main(argv):
     opts, args = getopt.getopt(argv,"d")
