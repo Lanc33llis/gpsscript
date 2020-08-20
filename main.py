@@ -1,4 +1,4 @@
-import gpsd, subprocess, sys, getopt, os
+import gpsd, subprocess, sys, getopt, os, time
 from subprocess import PIPE
 
 def main(argv):
@@ -32,8 +32,8 @@ def main(argv):
     "PBEACON delay=1  every=30 overlay=S symbol=\"digi\" lat=29.651190 long=-98.490837 power=50 height=20 gain=4 comment=\"San Antonia TX\" via=WIDE1-1,WIDE2-1 \n",
     "DIGIPEAT 0 0 ^WIDE[3-7]-[1-7]$|^TEST$ ^WIDE[12]-[12]$ TRACE \n",
     "IGSERVER noam.aprs2.net \n",
-    "IGLOGIN KI5KFW 19383",
-    "PBEACON sendto=IG delay=0:30 every=60:00 symbol=\"igate\" overlay=R lat=" + str(float(lat)) + " long=" + str(float(lon)) + "\n",
+    "IGLOGIN KI5KFW 19383 \n",
+    "PBEACON sendto=IG delay=0:05 every=60:00 symbol=\"igate\" overlay=R lat=" + str(float(lat)) + " long=" + str(float(lon)) + "\n",
     "IGTXLIMIT 6 10 \n",
     "TTPOINT  B01  37^55.37N  81^7.86W\n",		
     "TTPOINT  B7495088  42.605237  -71.34456\n",
@@ -49,13 +49,13 @@ def main(argv):
     "TTMACRO  xx1yy  B9xx*AB166*AA2B4C5B3B0A1yy\n",
     "TTMACRO  xx2yy  B9xx*AB170*AA3C4C7C3B0A2yy\n",
     "TTMACRO  xxyyy  B9xx*AB180*AA3A6C4A0Ayyy\n",
-    "TTMACRO  z  Cz"]
-
+    "TTMACRO  z  Cz\n",
+    "#ThisIsWorking!"]
     direwolfconf = open("direwolf.txt", "w")
     direwolfconf.writelines(lines)
     direwolfconf.close()
     os.rename("direwolf.txt", "direwolf.conf")
-    #aprs = subprocess.run(["sudo rtl_fm -f 144.39M - | direwolf -c direwolf.conf -r 24000 -D 1 -"], shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    aprs = subprocess.run(["sudo rtl_fm -f 144.39M - | direwolf -c direwolf.conf -r 24000 -D 1 -"], shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
 
     
     for opt, arg in opts:
