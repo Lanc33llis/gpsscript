@@ -19,7 +19,7 @@ def main(argv):
     gps = gpsd.get_current()
     lat = gps.lat
     lon = gps.lon
-    direwolfconf = open("/direwolf.txt", "w")
+    direwolfconf = open("direwolf.txt", "w")
     direwolfconf.write("checkThis")  
         # "
         # ACHANNELS 1
