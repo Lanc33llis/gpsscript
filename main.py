@@ -1,4 +1,4 @@
-import gpsd, subprocess, sys, getopt
+import gpsd, subprocess, sys, getopt, os
 from subprocess import PIPE
 
 def main(argv):
@@ -19,7 +19,7 @@ def main(argv):
     gps = gpsd.get_current()
     lat = gps.lat
     lon = gps.lon
-    direwolfconf = open("/direwolf.conf", "w")
+    direwolfconf = open("/direwolf.txt", "w")
     direwolfconf.write
     (          
         # "
@@ -55,6 +55,7 @@ def main(argv):
         "#checkThis"
     )
     direwolfconf.close()
+    os.rename("/direwolf.txt", "/direwolf.conf")
     #aprs = subprocess.run(["sudo rtl_fm -f 144.39M - | direwolf -c direwolf.conf -r 24000 -D 1 -"], shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
 
     
