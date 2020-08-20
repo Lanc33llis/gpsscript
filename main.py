@@ -19,7 +19,7 @@ def main(argv):
         gps = gpsd.get_current()
         lat = gps.lat
         lon = gps.lon
-        direwolfconf = open(direwolf.conf, w)
+        direwolfconf = open("direwolf.conf", "w")
         direwolfconf.write
         (          
             # "
