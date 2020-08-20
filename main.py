@@ -20,8 +20,7 @@ def main(argv):
     lat = gps.lat
     lon = gps.lon
     direwolfconf = open("/direwolf.txt", "w")
-    direwolfconf.write
-    (          
+    direwolfconf.write("checkThis")  
         # "
         # ACHANNELS 1
         # CHANNEL 0
@@ -52,8 +51,6 @@ def main(argv):
         # TTMACRO  z  Cz
         # #Check this!
         # "
-        "checkThis"
-    )
     direwolfconf.flush()
     direwolfconf.close()
 
