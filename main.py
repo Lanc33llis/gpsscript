@@ -104,9 +104,9 @@ def main(argv):
         #     continue
 
         subprocess.run(["aprs -c " + callsign + " -o packet.wav \"@" + time + " /" +  latstring + "/" + lonstring + " /A=" + altstring + "\""], shell=True)
-        time.sleep(.5)
+        time.sleep(5)
         subprocess.run(["aplay packet.wav"])
-        time.sleep(.5)
+        time.sleep(30)
             
     
     for opt, arg in opts:
