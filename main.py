@@ -1,4 +1,4 @@
-import gpsd, subprocess, sys, getopt, os, time, math, datetime, pytz
+import gpsd, aprs, subprocess, sys, getopt, os, time, math, datetime, pytz
 from subprocess import PIPE
 
 def gpsCheck():
@@ -48,6 +48,9 @@ def gpsCheck():
 
 def main(argv):
     callsign = "KI5KFW"
+    passcode = "19383"
+
+    
      
     opts, args = getopt.getopt(argv,"d")
 
@@ -103,6 +106,8 @@ def main(argv):
         print(latd + " " + latm + " " + lats)
         print(lond + " " + lonm + " " + lons)
         final = "aprs -c " + callsign + " -o packet.wav \"@" + timestring + "/" +  latstring + "/" + lonstring + " /A=" + altstring + "\""
+        frame = aprs.parse_frame(callsign + ">APRS:> @211425/2930.43N/09832.33W /A=000812")
+        a = aprs
         print(final)
         subprocess.run([final], shell=True)
         time.sleep(10)
