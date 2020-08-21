@@ -91,10 +91,8 @@ def main(argv):
             lats = (((float(lats) / 60) - 1) * 60)
         lonstring = lond + lonm + "." + str(float(lons) / 60) + "W"
 
-        altstring = str(alt)
+        altstring = str(alt * 3.281)
         altstring.zfill(6)
-
-        print(altstring)
 
         # updateDirewolfConf()
         # try:
@@ -105,7 +103,10 @@ def main(argv):
         #     print("reset")
         #     continue
 
-        # subprocess.run(["aprs -c " + callsign + " -o packet.wav \"@" + time + " /" +  latstring + "/" + lonstring + "\""])
+        subprocess.run(["aprs -c " + callsign + " -o packet.wav \"@" + time + " /" +  latstring + "/" + lonstring + " /A=" + altstring + "\""], shell=True)
+        time.sleep(.5)
+        subprocess.run(["aplay packet.wav"])
+        time.sleep(.5)
             
     
     for opt, arg in opts:
