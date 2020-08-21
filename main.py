@@ -11,45 +11,43 @@ def gpsCheck():
             lat, lon, alt = gpsCheck()
         return lat, lon, alt
 
-def updateDirewolfConf():
-    lat, lon = gpsCheck()
-    lines = ["ACHANNELS 1 \n",
-    "CHANNEL 0 \n",
-    "MYCALL KI5KFW \n",
-    "MODEM 1200 \n",
-    "AGWPORT 8000 \n",
-    "KISSPORT 8001 \n",
-    #"PBEACON delay=0:05  every=30 overlay=S symbol=\"digi\" lat=" + str(float(lat)) + " long=" + str(float(lon)) + " power=50 height=20 gain=4 comment=\"San Antonia TX\" via=WIDE1-1,WIDE2-1 \n",
-    "DIGIPEAT 0 0 ^WIDE[3-7]-[1-7]$|^TEST$ ^WIDE[12]-[12]$ TRACE \n",
-    "IGSERVER noam.aprs2.net \n",
-    "IGLOGIN KI5KFW 19383 \n",
-    "PBEACON sendto=IG delay=0 every=0:30 symbol=\"igate\" overlay=R lat=" + str(float(lat)) + " long=" + str(float(lon)) + "\n",
-    "IGTXLIMIT 6 10 \n",
-    "TTPOINT  B01  37^55.37N  81^7.86W\n",		
-    "TTPOINT  B7495088  42.605237  -71.34456\n",
-    "TTPOINT  B934  42.605237  -71.34456\n",		
-    "TTPOINT B901  42.661279  -71.364452\n",
-    "TTPOINT B902  42.660411  -71.364419\n",
-    "TTPOINT B903  42.659046  -71.364452\n",
-    "TTPOINT B904  42.657578  -71.364602\n",
-    "TTVECTOR  B5bbbddd  37^55.37N  81^7.86W  0.01  mi\n",
-    "TTGRID   Byyyxxx    37^50.00N  81^00.00W  37^59.99N  81^09.99W\n",
-    "TTUTM  B6xxxyyy  19T  10  300000  4720000\n",
-    "TTCORRAL   37^55.50N  81^7.00W  0^0.02N\n",
-    "TTMACRO  xx1yy  B9xx*AB166*AA2B4C5B3B0A1yy\n",
-    "TTMACRO  xx2yy  B9xx*AB170*AA3C4C7C3B0A2yy\n",
-    "TTMACRO  xxyyy  B9xx*AB180*AA3A6C4A0Ayyy\n",
-    "TTMACRO  z  Cz\n",
-    "#ThisIsWorking!"]
-    direwolfconf = open("direwolf.txt", "w")
-    direwolfconf.writelines(lines)
-    direwolfconf.close()
-    os.rename("direwolf.txt", "direwolf.conf")
+# def updateDirewolfConf():
+#     lat, lon = gpsCheck()
+#     lines = ["ACHANNELS 1 \n",
+#     "CHANNEL 0 \n",
+#     "MYCALL KI5KFW \n",
+#     "MODEM 1200 \n",
+#     "AGWPORT 8000 \n",
+#     "KISSPORT 8001 \n",
+#     #"PBEACON delay=0:05  every=30 overlay=S symbol=\"digi\" lat=" + str(float(lat)) + " long=" + str(float(lon)) + " power=50 height=20 gain=4 comment=\"San Antonia TX\" via=WIDE1-1,WIDE2-1 \n",
+#     "DIGIPEAT 0 0 ^WIDE[3-7]-[1-7]$|^TEST$ ^WIDE[12]-[12]$ TRACE \n",
+#     "IGSERVER noam.aprs2.net \n",
+#     "IGLOGIN KI5KFW 19383 \n",
+#     "PBEACON sendto=IG delay=0 every=0:30 symbol=\"igate\" overlay=R lat=" + str(float(lat)) + " long=" + str(float(lon)) + "\n",
+#     "IGTXLIMIT 6 10 \n",
+#     "TTPOINT  B01  37^55.37N  81^7.86W\n",		
+#     "TTPOINT  B7495088  42.605237  -71.34456\n",
+#     "TTPOINT  B934  42.605237  -71.34456\n",		
+#     "TTPOINT B901  42.661279  -71.364452\n",
+#     "TTPOINT B902  42.660411  -71.364419\n",
+#     "TTPOINT B903  42.659046  -71.364452\n",
+#     "TTPOINT B904  42.657578  -71.364602\n",
+#     "TTVECTOR  B5bbbddd  37^55.37N  81^7.86W  0.01  mi\n",
+#     "TTGRID   Byyyxxx    37^50.00N  81^00.00W  37^59.99N  81^09.99W\n",
+#     "TTUTM  B6xxxyyy  19T  10  300000  4720000\n",
+#     "TTCORRAL   37^55.50N  81^7.00W  0^0.02N\n",
+#     "TTMACRO  xx1yy  B9xx*AB166*AA2B4C5B3B0A1yy\n",
+#     "TTMACRO  xx2yy  B9xx*AB170*AA3C4C7C3B0A2yy\n",
+#     "TTMACRO  xxyyy  B9xx*AB180*AA3A6C4A0Ayyy\n",
+#     "TTMACRO  z  Cz\n",
+#     "#ThisIsWorking!"]
+#     direwolfconf = open("direwolf.txt", "w")
+#     direwolfconf.writelines(lines)
+#     direwolfconf.close()
+#     os.rename("direwolf.txt", "direwolf.conf")
 
 def main(argv):
     callsign = "KI5KFW"
-
-
      
     opts, args = getopt.getopt(argv,"d")
 
@@ -66,11 +64,11 @@ def main(argv):
     while True:
         lat, lon, alt = gpsCheck()
         print("Lat " + str(float(lat)) + " Lon " + str(float(lon)))
-        dT = datetime.datetime.now(pytz.timezone('America/Chicago'))
+        dT = datetime.datetime.now(pytz.timezone("America/Chicago"))
         days = dT.day
         hours = dT.hour
         mins = dT.minute
-        time = str(days) + str(hours) + str(mins)
+        timestring = str(days) + str(hours) + str(mins)
 
         latd = str(int(lat))
         latm = str((lat - float(latd)) * 60)
@@ -103,11 +101,10 @@ def main(argv):
         #     print("reset")
         #     continue
 
-        subprocess.run(["aprs -c " + callsign + " -o packet.wav \"@" + time + " /" +  latstring + "/" + lonstring + " /A=" + altstring + "\""], shell=True)
+        subprocess.run(["aprs -c " + callsign + " -o packet.wav \"@" + timestring + " /" +  latstring + "/" + lonstring + " /A=" + altstring + "\""], shell=True)
         time.sleep(5)
         subprocess.run(["aplay packet.wav"])
         time.sleep(30)
-            
     
     for opt, arg in opts:
         if opt == '-d':
