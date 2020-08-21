@@ -83,13 +83,13 @@ def main(argv):
         lon = abs(lon)
         lond = str(int(lon))
         lond.zfill(3)
-        lonm = str((lon - float(latd)) * 60)
+        lonm = str((lon - float(latd)) * 60)[0:2]
         lons = str((lon - float(lond) - (float(lonm) / 60)) * 3600)
         lons = str(round(float(lons)))[0:2]
         lons = str(float(lons) * 100)[0:2]
-        if float(lats) / 60 >= 1:
-            latm = str((float(latm) + 1))
-            lats = (((float(lats) / 60) - 1) * 60)
+        if float(lons) / 60 >= 1:
+            lonm = str((float(lonm) + 1))
+            lons = (((float(lons) / 60) - 1) * 60)
         lonstring = lond + lonm + "." + str(float(lons) / 60 * 100)[0:2] + "W"
 
         altstring = str(alt * 3.281)
