@@ -86,8 +86,8 @@ def main(argv):
         lonm = str((lon - float(lond)) * 60)[0:2]
         lons = str((lon - float(lond) - (float(lonm) / 60)) * 3600)
         lons = str(round(float(lons)))
-        lons = str(float(lons) * 100)
-        lonstring = lond + lonm + "." + str(float(lons) / 60 * 100)[0:2] + "N"
+        lons = str(float(lons) * 100)[0:2]
+        lonstring = lond + lonm + "." + str(float(lons) / 60 * 100)[0:2] + "W"
 
         altstring = str(alt * 3.281)
         altstring = altstring.zfill(6)
