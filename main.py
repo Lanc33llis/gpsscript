@@ -84,9 +84,9 @@ def main(argv):
         lond = str(int(lon))
         lond = lond.zfill(3)
         lonm = str((lon - float(lond)) * 60)[0:2]
-        lons = str((lat - float(latd) - (float(latm) / 60)) * 3600)
-        lons = str(round(float(lats)))
-        lons = str(float(lats) * 100)
+        lons = str((lon - float(lond) - (float(lonm) / 60)) * 3600)
+        lons = str(round(float(lons)))
+        lons = str(float(lons) * 100)
 
         altstring = str(alt * 3.281)
         altstring = altstring.zfill(6)
