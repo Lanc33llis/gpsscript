@@ -103,9 +103,9 @@ def main(argv):
         print(latd + " " + latm + " " + lats)
         print(lond + " " + lonm + " " + lons)
         print("aprs -c " + callsign + " -o packet.wav \"@" + timestring + "/" +  latstring + "/" + lonstring + " /A=" + altstring + "\"")
-        # subprocess.run(["aprs -c " + callsign + " -o packet.wav \"@" + timestring + " /" +  latstring + "/" + lonstring + " /A=" + altstring + "\""], shell=True)
-        # time.sleep(5)
-        # subprocess.run(["aplay packet.wav"], shell=True)
+        subprocess.run(["aprs -c " + callsign + " -o packet.wav \"@" + timestring + " /" +  latstring + "/" + lonstring + " /A=" + altstring + "\""], shell=True)
+        time.sleep(5)
+        subprocess.run(["aplay packet.wav"], shell=True)
         time.sleep(30)
     
     for opt, arg in opts:
