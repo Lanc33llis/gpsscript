@@ -89,7 +89,7 @@ def main(argv):
         lons = str(float(lons) * 100)[0:2]
         lonstring = lond + lonm + "." + str(float(lons) / 60 * 100)[0:2] + "W"
 
-        altstring = str(alt * 3.281)
+        altstring = str((int(alt * 3.281)))
         altstring = altstring.zfill(6)
 
         # updateDirewolfConf()
