@@ -100,7 +100,7 @@ def main(argv):
         # except subprocess.TimeoutExpired:
         #     print("reset")
         #     continue
-
+        print("aprs -c " + callsign + " -o packet.wav \"@" + timestring + " /" +  latstring + "/" + lonstring + " /A=" + altstring + "\"")
         subprocess.run(["aprs -c " + callsign + " -o packet.wav \"@" + timestring + " /" +  latstring + "/" + lonstring + " /A=" + altstring + "\""], shell=True)
         time.sleep(5)
         subprocess.run(["aplay packet.wav"], shell=True)
