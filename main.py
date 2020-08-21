@@ -1,4 +1,4 @@
-import gpsd, aprs, subprocess, sys, getopt, os, time, math, datetime, pytz
+import gpsd, subprocess, sys, getopt, os, time, math
 from subprocess import PIPE
 
 def gpsCheck():
