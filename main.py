@@ -83,7 +83,7 @@ def main(argv):
         lon = abs(lon)
         lond = str(int(lon))
         lond = lond.zfill(3)
-        lonm = str((lon - float(lond)) * 60)
+        lonm = str((lon - float(lond)) * 60)[0:2]
         lons = str((lat - float(latd) - (float(latm) / 60)) * 3600)
         lons = str(round(float(lats)))
         lons = str(float(lats) * 100)
