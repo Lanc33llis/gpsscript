@@ -1,14 +1,15 @@
-import gpsd, subprocess, sys, getopt, os, time, math
+import gpsd, subprocess, sys, getopt, os, time, math, datetime, pytz
 from subprocess import PIPE
 
 def gpsCheck():
         gps = gpsd.get_current()
         lat = gps.lat
         lon = gps.lon
-        if math.trunc(lat) == 0.0 or math.trunc(lon) == 0.0:
+        alt = gps.alt
+        if math.trunc(lat) == 0.0 or math.trunc(lon) == 0.0 or math.trunc(alt) == 0.0:
             time.sleep(.1)
-            lat, lon = gpsCheck()
-        return lat, lon
+            lat, lon, alt = gpsCheck()
+        return lat, lon, alt
 
 def updateDirewolfConf():
     lat, lon = gpsCheck()
@@ -46,6 +47,10 @@ def updateDirewolfConf():
     os.rename("direwolf.txt", "direwolf.conf")
 
 def main(argv):
+    callsign = "KI5KFW"
+
+
+     
     opts, args = getopt.getopt(argv,"d")
 
     gpsd.connect(host="0.0.0.0", port=2947)
@@ -59,9 +64,39 @@ def main(argv):
     # else:
 
     while True:
-        lat, lon = gpsCheck()
+        lat, lon, alt = gpsCheck()
         print("Lat " + str(float(lat)) + " Lon " + str(float(lon)))
-        updateDirewolfConf()
+        dT = datetime.datetime.now(pytz.timezone('America/Chicago'))
+        days = dT.day
+        hours = dT.hour
+        mins = dT.minute
+        time = str(days) + str(hours) + str(mins)
+
+        latd = str(int(lat))
+        latm = str((lat - float(latd)) * 60)
+        lats = str((lat - float(latd) - (float(latm) / 60)) * 3600)
+        lats = str(round(float(lats)))
+        if float(lats) / 60 >= 1:
+            latm = str((float(latm) + 1))
+            lats = (((float(lats) / 60) - 1) * 60)
+        latstring = latd + latm + "." + str(float(lats) / 60) + "N"
+
+        lond = str(int(lon))
+        if int(lond) >= 100:
+            lond = str(int(0)) + lond
+        lonm = str((lon - float(latd)) * 360)
+        lons = str((lon - float(lond) - (float(lonm) / 60)) * 3600)
+        if float(lats) / 60 >= 1:
+            latm = str((float(latm) + 1))
+            lats = (((float(lats) / 60) - 1) * 60)
+        lonstring = lond + lonm + "." + str(float(lons) / 60) + "W"
+
+        altstring = str(alt)
+        altstring.zfill(6)
+
+        print(altstring)
+
+        # updateDirewolfConf()
         # try:
         #     aprs = subprocess.run(["sudo rtl_fm -f 144.39M - | direwolf -c direwolf.conf -r 24000 -D 1 -"], shell=True, timeout=60, start_new_session=True)
         #     detach = subprocess.run("")
@@ -70,7 +105,7 @@ def main(argv):
         #     print("reset")
         #     continue
 
-        subprocess.run(["aprs "])
+        # subprocess.run(["aprs -c " + callsign + " -o packet.wav \"@" + time + " /" +  latstring + "/" + lonstring + "\""])
             
     
     for opt, arg in opts:
