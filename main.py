@@ -74,6 +74,7 @@ def main(argv):
         latm = str((lat - float(latd)) * 60)[0:2]
         lats = str((lat - float(latd) - (float(latm) / 60)) * 3600)
         lats = str(round(float(lats)))[0:2]
+        lats = str(float(lats) * 100)[0:2]
         if float(lats) / 60 >= 1:
             latm = str((float(latm) + 1))
             lats = (((float(lats) / 60) - 1) * 60)
@@ -84,6 +85,7 @@ def main(argv):
         lonm = str((lon - float(latd)) * 60)
         lons = str((lon - float(lond) - (float(lonm) / 60)) * 3600)
         lons = str(round(float(lons)))[0:2]
+        lons = str(float(lons) * 100)[0:2]
         if float(lats) / 60 >= 1:
             latm = str((float(latm) + 1))
             lats = (((float(lats) / 60) - 1) * 60)
