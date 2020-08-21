@@ -82,18 +82,14 @@ def main(argv):
 
         lon = abs(lon)
         lond = str(int(lon))
-        lond.zfill(4)
-        lonm = str((lon - float(latd)) * 60)[0:2]
-        lons = str((lon - float(lond) - (float(lonm) / 60)) * 3600)
-        lons = str(round(float(lons)))[0:2]
-        lons = str(float(lons) * 100)[0:2]
-        if float(lons) / 60 >= 1:
-            lonm = str((float(lonm) + 1))
-            lons = (((float(lons) / 60) - 1) * 60)
-        lonstring = lond + lonm + "." + str(float(lons) / 60 * 100)[0:2] + "W"
+        lond = lond.zfill(3)
+        londm = str((lon - float(lond)) * 60)
+        lats = str((lat - float(latd) - (float(latm) / 60)) * 3600)
+        lats = str(round(float(lats)))[
+        lats = str(float(lats) * 100)
 
         altstring = str(alt * 3.281)
-        altstring.zfill(6)
+        altstring = altstring.zfill(6)
 
         # updateDirewolfConf()
         # try:
