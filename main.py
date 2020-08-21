@@ -78,7 +78,7 @@ def main(argv):
         if float(lats) / 60 >= 1:
             latm = str((float(latm) + 1))
             lats = (((float(lats) / 60) - 1) * 60)
-        latstring = latd + latm + "." + str(float(lats) / 60) + "N"
+        latstring = latd + latm + "." + str(float(lats) / 60 * 100)[0:2] + "N"
 
         lond = str(int(lon))
         lond.zfill(3)
@@ -89,7 +89,7 @@ def main(argv):
         if float(lats) / 60 >= 1:
             latm = str((float(latm) + 1))
             lats = (((float(lats) / 60) - 1) * 60)
-        lonstring = lond + lonm + "." + str(float(lons) / 60) + "W"
+        lonstring = lond + lonm + "." + str(float(lons) / 60 * 100)[0:2] + "W"
 
         altstring = str(alt * 3.281)
         altstring.zfill(6)
@@ -104,9 +104,9 @@ def main(argv):
         #     continue
         print(latd + " " + latm + " " + lats)
         print("aprs -c " + callsign + " -o packet.wav \"@" + timestring + "/" +  latstring + "/" + lonstring + " /A=" + altstring + "\"")
-        subprocess.run(["aprs -c " + callsign + " -o packet.wav \"@" + timestring + " /" +  latstring + "/" + lonstring + " /A=" + altstring + "\""], shell=True)
-        time.sleep(5)
-        subprocess.run(["aplay packet.wav"], shell=True)
+        # subprocess.run(["aprs -c " + callsign + " -o packet.wav \"@" + timestring + " /" +  latstring + "/" + lonstring + " /A=" + altstring + "\""], shell=True)
+        # time.sleep(5)
+        # subprocess.run(["aplay packet.wav"], shell=True)
         time.sleep(30)
     
     for opt, arg in opts:
