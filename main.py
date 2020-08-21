@@ -85,7 +85,7 @@ def main(argv):
         lond = lond.zfill(3)
         londm = str((lon - float(lond)) * 60)
         lats = str((lat - float(latd) - (float(latm) / 60)) * 3600)
-        lats = str(round(float(lats)))[
+        lats = str(round(float(lats)))
         lats = str(float(lats) * 100)
 
         altstring = str(alt * 3.281)
