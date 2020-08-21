@@ -104,6 +104,7 @@ def main(argv):
         #     print("reset")
         #     continue
         print(latd + " " + latm + " " + lats)
+        print(lond + " " + lonm + " " + lons)
         print("aprs -c " + callsign + " -o packet.wav \"@" + timestring + "/" +  latstring + "/" + lonstring + " /A=" + altstring + "\"")
         # subprocess.run(["aprs -c " + callsign + " -o packet.wav \"@" + timestring + " /" +  latstring + "/" + lonstring + " /A=" + altstring + "\""], shell=True)
         # time.sleep(5)
