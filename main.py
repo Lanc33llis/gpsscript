@@ -96,10 +96,10 @@ def main(argv):
     #     altstring = altstring.zfill(6)
 
     updateDirewolfConf()
-    try:
-        aprs = subprocess.run(["sudo rtl_fm -f 144.39M - | direwolf -c direwolf.conf -r 24000 -D 1 -"], shell=True, timeout=60, start_new_session=True)
-    except subprocess.TimeoutExpired:
-        print("reset")
+    # try:
+    #     #aprs = subprocess.run(["sudo rtl_fm -f 144.39M - | direwolf -c direwolf.conf -r 24000 -D 1 -"], shell=True, timeout=60, start_new_session=True)
+    # except subprocess.TimeoutExpired:
+    #     print("reset")
     #     print(latd + " " + latm + " " + lats)
     #     print(lond + " " + lonm + " " + lons)
     #     final = "aprs -c " + callsign + " -o packet.wav \"@" + timestring + "/" +  latstring + "/" + lonstring + " /A=" + altstring + "\""
