@@ -80,6 +80,7 @@ def main(argv):
             lats = (((float(lats) / 60) - 1) * 60)
         latstring = latd + latm + "." + str(float(lats) / 60 * 100)[0:2] + "N"
 
+        lon = abs(lon)
         lond = str(int(lon))
         lond.zfill(3)
         lonm = str((lon - float(latd)) * 60)
