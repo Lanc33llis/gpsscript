@@ -77,7 +77,7 @@ def main(argv):
         lats = str(float(lats) * 100)[0:2]
         if float(lats) / 60 >= 1:
             latm = str((float(latm) + 1))
-            lats = (((float(lats) / 60) - 1) * 60)
+            lats = str(((float(lats) / 60) - 1) * 60)
         latstring = latd + latm + "." + str(float(lats) / 60 * 100)[0:2] + "N"
 
         lon = abs(lon)
@@ -89,7 +89,7 @@ def main(argv):
         lons = str(float(lons) * 100)
         if float(lons) / 60 >= 1:
             lonm = str((float(lonm) + 1))
-            lons = (((float(lons) / 60) - 1) * 60)
+            lons = str(((float(lons) / 60) - 1) * 60)
         lonstring = lond + lonm + "." + str(float(lons) / 60 * 100)[0:2] + "N"
 
         altstring = str(alt * 3.281)
