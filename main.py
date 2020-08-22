@@ -68,8 +68,11 @@ def main(argv):
         print("Lat " + str(float(lat)) + " Lon " + str(float(lon)))
         dT = datetime.datetime.now(pytz.timezone("America/Chicago"))
         days = dT.day
+        days = days.zfill(2)
         hours = dT.hour
+        hours = hours.zfill(2)
         mins = dT.minute
+        mins = mins.zfill(2)
         timestring = str(days) + str(hours) + str(mins)
 
         latd = str(int(lat))
