@@ -108,10 +108,10 @@ def main(argv):
     #     frame = aprs.parse_frame(callsign + ">APRS:> @211425/2930.43N/09832.33W /A=000812")
     #     a = aprs
     #     print(final)
-    #     subprocess.run([final], shell=True)
-    #     time.sleep(10)
-    #     subprocess.run(["aplay packet.wav"], shell=True)
-    #     time.sleep(30)
+        subprocess.run([final], shell=True)
+        time.sleep(10)
+        subprocess.run(["aplay packet.wav"], shell=True)
+        time.sleep(30)
     
     for opt, arg in opts:
         if opt == '-d':
