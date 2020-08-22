@@ -51,14 +51,12 @@ def main(argv):
     callsign = "KI5KFW"
     passcode = "19383"
 
-    
-     
     opts, args = getopt.getopt(argv,"d")
 
     while True:
         try:
             gpsd.connect(host="0.0.0.0", port=2947)
-        except:
+        except UserWarning('GPS not active'):
             time.sleep(3)
             continue
         else:
