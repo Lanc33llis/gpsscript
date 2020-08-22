@@ -58,7 +58,7 @@ def main(argv):
     while True:
         try:
             gpsd.connect(host="0.0.0.0", port=2947)
-        except
+        except:
             time.sleep(3)
             continue
         else:
