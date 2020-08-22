@@ -55,7 +55,14 @@ def main(argv):
      
     opts, args = getopt.getopt(argv,"d")
 
-    gpsd.connect(host="0.0.0.0", port=2947)
+    while True:
+        try:
+            gpsd.connect(host="0.0.0.0", port=2947)
+        except
+            time.sleep(3)
+            continue
+        else:
+            break
     gpsd.GpsResponse.mode = 3
 
     #uhub = subprocess.run(["/home/pi/gpsscript/uhubctl -a 0 -p 10"], shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
@@ -111,7 +118,7 @@ def main(argv):
         subprocess.run([final], shell=True)
         time.sleep(10)
         subprocess.run(["aplay packet.wav"], shell=True)
-        time.sleep(30)
+        time.sleep(70)
     
     for opt, arg in opts:
         if opt == '-d':
