@@ -22,7 +22,7 @@ def updateDirewolfConf():
     "KISSPORT 8001 \n",
     "PBEACON delay=0:05  every=30 overlay=S symbol=\"digi\" lat=" + str(float(lat)) + " long=" + str(float(lon)) + " power=50 height=20 gain=4 comment=\"San Antonia TX\" via=WIDE1-1,WIDE2-1 \n",
     "DIGIPEAT 0 0 ^WIDE[3-7]-[1-7]$|^TEST$ ^WIDE[12]-[12]$ TRACE \n",
-    "IGSERVER noam.aprs2.net \n",
+    # "IGSERVER noam.aprs2.net \n", 
     "IGLOGIN KI5KFW 19383 \n",
     "TBEACON sendto=IG delay=0 DELAY=0:30 EVERY=1:00 VIA=WIDE1-1 SYMBOL=Balloon\n",
     "IGTXLIMIT 6 10 \n",
