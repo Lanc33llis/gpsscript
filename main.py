@@ -53,7 +53,7 @@ def main(argv):
 
     opts, args = getopt.getopt(argv,"d")
 
-    warnings.filterwarnings('gpsd')
+    warnings.filterwarnings('module', "GPS not active")
 
     while True:
         try:
