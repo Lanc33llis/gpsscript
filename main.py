@@ -53,7 +53,7 @@ def main(argv):
 
     opts, args = getopt.getopt(argv,"d")
 
-    warnings.filterwarnings('error')
+    warnings.filterwarnings('gpsd')
 
     while True:
         try:
