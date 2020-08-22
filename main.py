@@ -1,4 +1,4 @@
-import gpsd, subprocess, sys, getopt, os, time, math, datetime, pytz
+import gpsd, subprocess, sys, getopt, os, time, math, datetime, pytz, warnings
 from subprocess import PIPE
 
 def gpsCheck():
@@ -53,14 +53,17 @@ def main(argv):
 
     opts, args = getopt.getopt(argv,"d")
 
+    warnings.filterwarnings('error')
+
     while True:
         try:
             gpsd.connect(host="0.0.0.0", port=2947)
-        except UserWarning('GPS not active'):
+        except Warning:
             time.sleep(3)
             continue
         else:
             break
+
     gpsd.GpsResponse.mode = 3
 
     #uhub = subprocess.run(["/home/pi/gpsscript/uhubctl -a 0 -p 10"], shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
