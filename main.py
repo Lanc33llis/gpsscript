@@ -65,46 +65,46 @@ def main(argv):
     #     sys.exit(-1)
     # else:
 
-    # while True:
-    #     lat, lon, alt = gpsCheck()
-    #     print("Lat " + str(float(lat)) + " Lon " + str(float(lon)))
-    #     dT = datetime.datetime.now(pytz.timezone("America/Chicago"))
-    #     days = dT.day
-    #     hours = dT.hour
-    #     mins = dT.minute
-    #     timestring = str(days) + str(hours) + str(mins)
+    while True:
+        lat, lon, alt = gpsCheck()
+        print("Lat " + str(float(lat)) + " Lon " + str(float(lon)))
+        dT = datetime.datetime.now(pytz.timezone("America/Chicago"))
+        days = dT.day
+        hours = dT.hour
+        mins = dT.minute
+        timestring = str(days) + str(hours) + str(mins)
 
-    #     latd = str(int(lat))
-    #     latm = str((lat - float(latd)) * 60)[0:2]
-    #     lats = str((lat - float(latd) - (float(latm) / 60)) * 3600)
-    #     lats = str(round(float(lats)))[0:2]
-    #     lats = str(float(lats) * 100)[0:2]
-    #     if float(lats) / 60 >= 1:
-    #         latm = str((float(latm) + 1))
-    #         lats = str(((float(lats) / 60) - 1) * 60)
-    #     latstring = latd + latm + "." + str(float(lats) / 60 * 100)[0:2] + "N"
+        latd = str(int(lat))
+        latm = str((lat - float(latd)) * 60)[0:2]
+        lats = str((lat - float(latd) - (float(latm) / 60)) * 3600)
+        lats = str(round(float(lats)))[0:2]
+        lats = str(float(lats) * 100)[0:2]
+        if float(lats) / 60 >= 1:
+            latm = str((float(latm) + 1))
+            lats = str(((float(lats) / 60) - 1) * 60)
+        latstring = latd + latm + "." + str(float(lats) / 60 * 100)[0:2] + "N"
 
-    #     lon = abs(lon)
-    #     lond = str(int(lon))
-    #     lond = lond.zfill(3)
-    #     lonm = str((lon - float(lond)) * 60)[0:2]
-    #     lons = str((lon - float(lond) - (float(lonm) / 60)) * 3600)
-    #     lons = str(round(float(lons)))
-    #     lons = str(float(lons) * 100)[0:2]
-    #     lonstring = lond + lonm + "." + str(float(lons) / 60 * 100)[0:2] + "W"
+        lon = abs(lon)
+        lond = str(int(lon))
+        lond = lond.zfill(3)
+        lonm = str((lon - float(lond)) * 60)[0:2]
+        lons = str((lon - float(lond) - (float(lonm) / 60)) * 3600)
+        lons = str(round(float(lons)))
+        lons = str(float(lons) * 100)[0:2]
+        lonstring = lond + lonm + "." + str(float(lons) / 60 * 100)[0:2] + "W"
 
-    #     altstring = str((int(alt * 3.281)))
-    #     altstring = altstring.zfill(6)
+        altstring = str((int(alt * 3.281)))
+        altstring = altstring.zfill(6)
 
-    updateDirewolfConf()
+    # updateDirewolfConf()
     # try:
     #     #aprs = subprocess.run(["sudo rtl_fm -f 144.39M - | direwolf -c direwolf.conf -r 24000 -D 1 -"], shell=True, timeout=60, start_new_session=True)
     # except subprocess.TimeoutExpired:
     #     print("reset")
     #     print(latd + " " + latm + " " + lats)
     #     print(lond + " " + lonm + " " + lons)
-    final = "aprs -c " + callsign + " -o packet.wav \"@" + timestring + "/" +  latstring  + "/" + lonstring + "O /A=" + altstring + "\""
-    print(final)
+        final = "aprs -c " + callsign + " -o packet.wav \"@" + timestring + "/" +  latstring  + "/" + lonstring + "O /A=" + altstring + "\""
+        print(final)
     #     frame = aprs.parse_frame(callsign + ">APRS:> @211425/2930.43N/09832.33W /A=000812")
     #     a = aprs
     #     print(final)
