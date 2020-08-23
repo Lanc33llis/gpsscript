@@ -110,7 +110,7 @@ def main(argv):
         time.sleep(10)
         subprocess.run(["aplay packet.wav"], shell=True)
         time.sleep(50)
-.    
+    
     for opt, arg in opts:
         if opt == '-d':
             print("DEBUG: ")
