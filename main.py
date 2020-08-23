@@ -102,6 +102,7 @@ def main(argv):
     #     print(latd + " " + latm + " " + lats)
     #     print(lond + " " + lonm + " " + lons)
         final = "aprs -c " + callsign + " -o packet.wav \"@" + timestring + "/" +  latstring  + "/" + lonstring + "O /A=" + altstring + "\""
+        updateDirewolfConf()
         print(final)
     #     frame = aprs.parse_frame(callsign + ">APRS:> @211425/2930.43N/09832.33W /A=000812")
     #     a = aprs
