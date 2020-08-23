@@ -14,7 +14,7 @@ def gpsCheck():
 def updateDirewolfConf():
     lat, lon, alt = gpsCheck()
     lines = ["ACHANNELS 1 \n",
-    "ADEVICE plughw:0,0"
+    "ADEVICE plughw:0,0 \n"
     "GPSD \n",
     "CHANNEL 0 \n",
     "MYCALL KI5KFW \n",
