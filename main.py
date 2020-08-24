@@ -25,7 +25,7 @@ def updateDirewolfConf():
     #"DIGIPEAT 0 0 ^WIDE[3-7]-[1-7]$|^TEST$ ^WIDE[12]-[12]$ TRACE \n",
     # "IGSERVER noam.aprs2.net \n", 
     # "IGLOGIN KI5KFW 19383 \n",
-    "TBEACON delay=0 DELAY=0:30 EVERY=1:00 SYMBOL=Balloon VIA=KI5KFW-10,WIDE2-2 COMMENT=\"LEE Receive only IGate\" POWER=5 height=5 gain=2 x \n",
+    "TBEACON delay=0 DELAY=0:30 EVERY=1:00 SYMBOL=Balloon VIA=KI5KFW-10,WIDE2-2 COMMENT=\"LEE Receive only IGate\" POWER=5 height=5 gain=2\n",
     "IGTXLIMIT 6 10 \n",
     "TTPOINT  B01  37^55.37N  81^7.86W\n",		
     "TTPOINT  B7495088  42.605237  -71.34456\n",
