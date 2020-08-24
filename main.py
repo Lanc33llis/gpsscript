@@ -14,18 +14,18 @@ def gpsCheck():
 def updateDirewolfConf():
     lat, lon, alt = gpsCheck()
     lines = ["ACHANNELS 1 \n",
-    "ADEVICE plughw:0,0 \n"
+    "ADEVICE plughw:0,null \n"
     "GPSD \n",
     "CHANNEL 0 \n",
     "MYCALL KI5KFW \n",
     "MODEM 1200 \n",
     "AGWPORT 8000 \n",
     "KISSPORT 8001 \n",
-    "PBEACON delay=0:05  every=30 overlay=S symbol=\"digi\" lat=" + str(float(lat)) + " long=" + str(float(lon)) + " power=50 height=20 gain=4 comment=\"San Antonia TX\" via=WIDE1-1,WIDE2-1 \n",
-    "DIGIPEAT 0 0 ^WIDE[3-7]-[1-7]$|^TEST$ ^WIDE[12]-[12]$ TRACE \n",
+    #"PBEACON delay=0:05 every=30 overlay=S symbol=\"Balloon\" lat=" + str(float(lat)) + " long=" + str(float(lon)) + " power=50 height=20 gain=4 comment=\"San Antonia TX\" via=WIDE1-1,WIDE2-1 \n",
+    #"DIGIPEAT 0 0 ^WIDE[3-7]-[1-7]$|^TEST$ ^WIDE[12]-[12]$ TRACE \n",
     # "IGSERVER noam.aprs2.net \n", 
     # "IGLOGIN KI5KFW 19383 \n",
-    "TBEACON delay=0 DELAY=0:30 EVERY=1:00 SYMBOL=Balloon VIA=WIDE1-1,WIDE2-1 \n",
+    "TBEACON delay=0 DELAY=0:30 EVERY=1:00 SYMBOL=Balloon VIA=KI5KFW-10,WIDE2-2 \n",
     "IGTXLIMIT 6 10 \n",
     "TTPOINT  B01  37^55.37N  81^7.86W\n",		
     "TTPOINT  B7495088  42.605237  -71.34456\n",
